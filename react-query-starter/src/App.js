@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 import './App.css'
 import { HomePage } from './components/Home.page'
@@ -15,30 +16,19 @@ function App() {
         <div>
           <nav>
             <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/super-heroes'>Traditional Super Heroes</Link>
-              </li>
-              <li>
-                <Link to='/rq-super-heroes'>RQ Super Heroes</Link>
-              </li>
+              <li><Link to='/'>Home</Link></li>
+              <li><Link to='/super-heroes'>Traditional Super Heroes</Link></li>
+              <li><Link to='/rq-super-heroes'>RQ Super Heroes</Link></li>
             </ul>
           </nav>
           <Switch>
-            <Route path='/super-heroes'>
-              <SuperHeroesPage />
-            </Route>
-            <Route path='/rq-super-heroes'>
-              <RQSuperHeroesPage />
-            </Route>
-            <Route path='/'>
-              <HomePage />
-            </Route>
+            <Route path='/super-heroes' component={SuperHeroesPage} />
+            <Route path='/rq-super-heroes' component={RQSuperHeroesPage} />
+            <Route path='/' component={HomePage} />
           </Switch>
         </div>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
     </QueryClientProvider>
   )
 }
