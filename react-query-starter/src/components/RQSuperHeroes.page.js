@@ -20,6 +20,9 @@ export const RQSuperHeroesPage = () => {
       //staleTime: 30000, // default stale time is 0, so at each visit a new fetch is made 
       //refetchOnMount: false, //default true
       //refetchOnWindowFocus: false //defualt true, whenever the window is focused
+      //refetchInterval: 5000, //refetch pauses if not focused
+      //refetchIntervalInBackground: true //now polling is available even when browser is not in focus 
+      
     }
     );
 
