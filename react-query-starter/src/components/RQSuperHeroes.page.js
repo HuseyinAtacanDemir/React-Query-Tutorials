@@ -12,9 +12,9 @@ export const RQSuperHeroesPage = () => {
 
   //react-query injects the data or the err obj to the onSuccess and onError functions
   const onSuccess = (data) => {
-    data.data.length === 6 && setRefetchIntervalMs(false)
+    //data.data.length === 6 && setRefetchIntervalMs(false)
 
-    console.log('Side effect on succesful data fetching, refetchInterval: ', refetchIntervalMs)
+    console.log('Side effect on succesful data fetching, refetchInterval: ', data, refetchIntervalMs)
   }
   const onError = (err) => {
 
@@ -42,6 +42,11 @@ export const RQSuperHeroesPage = () => {
       //enabled: false //do not fetch automatically on mount
       onSuccess,
       onError,//since the name of the handle function we defined is the same as the internal name of the field used in react-query implementation, we can just type in the func name
+      //select option allows you to insert a function to do whatever with the data return by the api before feeding that data to the frontend 
+      select: (data) => {
+        const superHeroNames = data.data.map(hero => hero.name)
+        return superHeroNames
+      }
     }
   );
 
@@ -55,7 +60,8 @@ export const RQSuperHeroesPage = () => {
         (<>
           <h2>React Query Super Heroes Page</h2>
           {/*<button onClick={refetch}>Fetch Data</button>*/}
-          {data?.data.map(hero => <div key={hero.name}>{hero.name}</div>)}
+          {/*data?.data.map(hero => <div key={hero.name}>{hero.name}</div>)*/}
+          {data.map(heroName => (<div key={heroName}>{heroName}</div>))}
         </>)
   )
 }
