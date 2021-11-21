@@ -8,7 +8,7 @@ const fetchSuperHero = ({ queryKey }) => {
 
 export const useSuperHeroData = heroId => {
   const queryClient = useQueryClient()
-  return useQuery(['super-hero', (heroId+"")], fetchSuperHero, {
+  return useQuery(['super-hero', (heroId)], fetchSuperHero, {
     initialData: () => {
       const hero = queryClient
         .getQueryData('super-heroes')
