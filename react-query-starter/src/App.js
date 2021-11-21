@@ -6,6 +6,7 @@ import './App.css'
 import { HomePage } from './components/Home.page'
 import { RQSuperHeroesPage } from './components/RQSuperHeroes.page'
 import { SuperHeroesPage } from './components/SuperHeroes.page'
+import { HWComponent } from './components/HWComponent';
 
 const queryClient = new QueryClient();
 
@@ -19,11 +20,13 @@ function App() {
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/super-heroes'>Traditional Super Heroes</Link></li>
               <li><Link to='/rq-super-heroes'>RQ Super Heroes</Link></li>
+              <li><Link to='/hw-component'>HW Component</Link></li>
             </ul>
           </nav>
           <Switch>
             <Route path='/super-heroes' component={SuperHeroesPage} />
             <Route path='/rq-super-heroes' component={RQSuperHeroesPage} />
+            <Route path='/hw-component' component={HWComponent} />
             <Route path='/' component={HomePage} />
           </Switch>
         </div>

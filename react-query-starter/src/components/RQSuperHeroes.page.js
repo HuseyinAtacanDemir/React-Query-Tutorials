@@ -23,7 +23,7 @@ export const RQSuperHeroesPage = () => {
     isError,
     error,
     //refetch,//function returned by useQuery to manually fetch data
-  } = useSuperHeroesData(onSuccess, onError)
+  } = useSuperHeroesData({ onSuccess, onError })
 
   console.log({ isLoading, isFetching })
 
