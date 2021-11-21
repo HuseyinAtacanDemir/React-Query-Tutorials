@@ -7,6 +7,7 @@ import { HomePage } from './components/Home.page'
 import { RQSuperHeroesPage } from './components/RQSuperHeroes.page'
 import { SuperHeroesPage } from './components/SuperHeroes.page'
 import { HWComponent } from './components/HWComponent';
+import { RQSuperHero } from './components/RQSuperHero';
 
 const queryClient = new QueryClient();
 
@@ -25,8 +26,10 @@ function App() {
           </nav>
           <Switch>
             <Route path='/super-heroes' component={SuperHeroesPage} />
+            <Route path='/rq-super-heroes/:heroId' component={RQSuperHero} />
             <Route path='/rq-super-heroes' component={RQSuperHeroesPage} />
             <Route path='/hw-component' component={HWComponent} />
+
             <Route path='/' component={HomePage} />
           </Switch>
         </div>

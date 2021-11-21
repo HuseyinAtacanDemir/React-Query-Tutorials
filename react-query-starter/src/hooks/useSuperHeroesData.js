@@ -21,10 +21,10 @@ export const useSuperHeroesData = (props) => {
             refetchInterval: props.refetchInterval, //refetch pauses if not focused
             onSuccess: props.onSuccess,
             onError: props.onError,//since the name of the handle function we defined is the same as the internal name of the field used in react-query implementation, we can just type in the func name
-            select: (data) => {
+            /* select: (data) => {
                 const superHeroNames = data.data.map(hero => hero.name)
                 return superHeroNames
-            }
+            } */
         }
     );
 }
